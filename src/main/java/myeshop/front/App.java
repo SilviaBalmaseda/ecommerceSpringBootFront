@@ -38,10 +38,11 @@ public class App {
             cli.setFechaRegistro(LocalDateTime.now());
             
             InformacionFiscal info = new InformacionFiscal();
-            info.setNifCif(nif); 
             info.setTelefono("600111222");
             info.setDireccionFiscal("Calle Nube 1");
             
+            // Esto fija el nif con @MapsId 
+            info.setCliente(cli);
             cli.setInformacionFiscal(info); // Relación 1 a 1
             
             clienteRepo.save(cli); // ¡Spring hace el persist y commit solo!
